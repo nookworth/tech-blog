@@ -1,4 +1,4 @@
-{{#each users as |user| }}
+{{!-- {{#each users as |user| }}
 <div class="row align-center mb-5">
   <div class="col-md-6">
     <h2>{{{get_emoji}}} {{user.name}}</h2>
@@ -7,4 +7,12 @@
     <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
   </div>
 </div>
+{{/each}} --}}
+
+{{#each users as |user|}}
+  <div class="w-full h-36 border-2 border-black rounded m-6"><div
+      class="flex h-1/5 bg-zinc-800 justify-between text-center align-middle text-white"
+    ><p>{{user.name}}</p><p>Posted by {{user.name}} on Date</p></div><div
+      class="h-4/5 bg-sky-800 bg-opacity-80 text-white text-center"
+    ><p>{{user.email}}</p></div></div>
 {{/each}}
