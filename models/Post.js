@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
 class Post extends Model {
   checkPassword(loginPw) {
@@ -25,20 +25,21 @@ Post.init(
       allowNull: false,
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATETIME,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     comments: {
-        type: DataTypes.ARRAY,
-        allowNull: true,
-    }
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: "post",
   }
 );
 
