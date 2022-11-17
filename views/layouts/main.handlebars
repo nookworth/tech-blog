@@ -10,23 +10,31 @@
 
   <body>
     <header class="flex bg-sky-200 align-center p-2">
-      <button
-        class="m-2 w-36 border-2 text-white border-black rounded bg-sky-800 bg-opacity-80"
-      >Home</button>
-      <button
-        class="m-2 w-36 border-2 text-white border-black rounded bg-sky-800 bg-opacity-80"
-      >Dashboard</button>
+      <a
+        href="/"
+        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+        style="text-decoration:none"
+      >Home</a>
+      <a
+        href="/dashboard"
+        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+        style="text-decoration:none"
+      >Dashboard</a>
       {{#unless logged_in}}
-        <button
-          class="m-2 w-36 border-2 text-white border-black rounded bg-sky-800 bg-opacity-80"
+        <a
+          href="/login"
+          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+          style="text-decoration:none"
           id="login"
-        >Login/Signup</button>
+        >Login/Signup</a>
       {{/unless}}
       {{#if logged_in}}
-        <button
-          class="m-2 w-36 border-2 text-white border-black rounded bg-sky-800 bg-opacity-80"
+        <a
+          href="/"
+          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+          style="text-decoration:none"
           id="logout"
-        >Logout</button>
+        >Logout</a>
       {{/if}}
     </header>
     <main class="display-flex flex-row">

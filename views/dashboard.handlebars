@@ -1,0 +1,23 @@
+{{#if posts.length}}
+    <div class="border-slate-500 border-dashed border-2 w-2/5 mx-8 p-4">
+      <h3 class="text-center font-bold">Your Blog Posts</h3>
+    {{#each posts as |post|}}
+        <div>
+          <div class="flex">
+            <h4
+              class="flex flex-row justify-between m-2 border-2 border-slate-500 w-full"
+            ><a href= "/listing/{{post.id}}">{{post.name}}</a><button
+                class="border-2 border-black rounded bg-red-500 text-white w-1/5 login-button listing-list"
+                data-id="{{post.id}}"
+              >DELETE</button></h4>
+          </div>
+          <div class="text-center">
+            {{!-- <button
+              class="border-2 border-black rounded bg-red-500 text-white w-1/2 login-button"
+              data-id="{{listing.id}}"
+            >DELETE</button> --}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
