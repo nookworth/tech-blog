@@ -1,46 +1,70 @@
+<div class="w-full flex flex-col flex-wrap content-center my-2 space-y-2">
 
-    <div class="w-full flex flex-col flex-wrap content-center my-2 space-y-2">
-    
-    <div class="flex border-slate-500 border-dashed border-2 w-4/5 mx-8 p-4 justify-center">
-      <h3 class="text-center font-bold">Your Blog Posts</h3>
-      <button    
-            class="ml-auto w-24 border-2 text-white text-center text-bold border-black rounded bg-sky-800 bg-opacity-80"
-            id="add-post">+
-      </button>
+  <div
+    class="flex flex-col border-slate-500 border-dashed border-2 w-4/5 mx-8 p-4 justify-center"
+  >
+    <h3 class="text-center font-bold">Your Blog Posts</h3>
+    <button
+      class="ml-auto my-2 w-24 border-2 text-white text-center text-bold border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
+      id="add-post"
+    >+
+    </button>
     {{#each posts as |post|}}
-        <div>
-          <div class="flex">
-            <h4
-              class="flex flex-row justify-between m-2 border-2 border-slate-500 w-full"
-            ><a href= "/listing/{{post.id}}">{{post.name}}</a><button
-                class="border-2 border-black rounded bg-red-500 text-white w-1/5 login-button listing-list"
-                data-id="{{post.id}}"
-              >DELETE</button></h4>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-    </div>
+      <div class="w-full flex border-2 border-black rounded">
+        <button
+          class="w-3/12 bg-zinc-800 bg-opacity-80 text-center text-white hover:bg-opacity-90"
+          id="update-post"
+        >{{post.title}}</button>
+        <span
+          class="w-9/12 bg-sky-800 bg-opacity-80 text-white"
+        >{{post.text}}</span>
+      </div>
+    {{/each}}
+  </div>
+</div>
 
-
-<!-- The Modal -->
 <div id="post-modal" class="modal">
 
-  <!-- Modal content -->
   <div class="modal-content border-2 border-black rounded bg-sky-200">
     <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
-  <div class="form-group">
-    <label for="post-title">Title:</label>
-    <input class="form-input" type="text" id="post-title" />
+      <div class="form-group">
+        <label for="post-title">Title:</label>
+        <input class="form-input" type="text" id="post-title" />
+      </div>
+      <div class="form-group">
+        <label for="post-text">Text:</label>
+        <input class="form-input" type="text" id="post-text" />
+      </div>
+      <button
+        class="close m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
+      >Save</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="post-text">Text:</label>
-    <input class="form-input" type="text" id="post-text" />
-  </div>
-  <button class="close m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80">Save</button>
-  </div>
-  </form>
 
 </div>
 
-<script src="/js/addPost.js"></script>
+<div id="update-modal" class="modal">
+
+  <div class="modal-content border-2 border-black rounded bg-sky-200">
+    <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
+      <div class="form-group">
+        <label for="post-title">Title:</label>
+        <input class="form-input" type="text" id="post-title" />
+      </div>
+      <div class="form-group">
+        <label for="post-text">Text:</label>
+        <input class="form-input" type="text" id="post-text" />
+      </div>
+      <button
+        id="update-post"
+        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
+      >Update</button>
+      <button
+        class="close m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
+      >Delete</button>
+    </form>
+  </div>
+
+</div>
+
+<script src="/js/dashboard.js"></script>

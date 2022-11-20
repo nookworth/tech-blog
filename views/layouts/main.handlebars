@@ -12,18 +12,18 @@
     <header class="flex bg-sky-200 align-center p-2">
       <a
         href="/"
-        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
         style="text-decoration:none"
       >Home</a>
       <a
         href="/dashboard"
-        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
         style="text-decoration:none"
       >Dashboard</a>
       {{#unless logged_in}}
         <a
           href="/login"
-          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
           style="text-decoration:none"
           id="login"
         >Login/Signup</a>
@@ -31,7 +31,7 @@
       {{#if logged_in}}
         <a
           href="/"
-          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
           style="text-decoration:none"
           id="logout"
         >Logout</a>
