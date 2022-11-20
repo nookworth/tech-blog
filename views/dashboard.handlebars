@@ -1,6 +1,12 @@
 
-    <div class="border-slate-500 border-dashed border-2 w-2/5 mx-8 p-4">
+    <div class="w-full flex flex-col flex-wrap content-center my-2 space-y-2">
+    
+    <div class="flex border-slate-500 border-dashed border-2 w-4/5 mx-8 p-4 justify-center">
       <h3 class="text-center font-bold">Your Blog Posts</h3>
+      <button    
+            class="ml-auto w-24 border-2 text-white text-center text-bold border-black rounded bg-sky-800 bg-opacity-80"
+            id="add-post">+
+      </button>
     {{#each posts as |post|}}
         <div>
           <div class="flex">
@@ -11,25 +17,17 @@
                 data-id="{{post.id}}"
               >DELETE</button></h4>
           </div>
-          <div class="text-center">
-            {{!-- <button
-              class="border-2 border-black rounded bg-red-500 text-white w-1/2 login-button"
-              data-id="{{listing.id}}"
-            >DELETE</button> --}}
-          </div>
         </div>
       {{/each}}
     </div>
-    <button    
-          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
-          id="add-post">Add Blog Post</button>
+    </div>
+
 
 <!-- The Modal -->
 <div id="post-modal" class="modal">
 
   <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
+  <div class="modal-content border-2 border-black rounded bg-sky-200">
     <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
   <div class="form-group">
     <label for="post-title">Title:</label>
@@ -39,6 +37,7 @@
     <label for="post-text">Text:</label>
     <input class="form-input" type="text" id="post-text" />
   </div>
+  <button class="close m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80">Save</button>
   </div>
   </form>
 
