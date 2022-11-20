@@ -1,4 +1,4 @@
-{{#if posts.length}}
+
     <div class="border-slate-500 border-dashed border-2 w-2/5 mx-8 p-4">
       <h3 class="text-center font-bold">Your Blog Posts</h3>
     {{#each posts as |post|}}
@@ -20,4 +20,28 @@
         </div>
       {{/each}}
     </div>
-  {{/if}}
+    <button    
+          class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80"
+          id="add-post">Add Blog Post</button>
+
+<!-- The Modal -->
+<div id="post-modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
+  <div class="form-group">
+    <label for="post-title">Title:</label>
+    <input class="form-input" type="text" id="post-title" />
+  </div>
+  <div class="form-group">
+    <label for="post-text">Text:</label>
+    <input class="form-input" type="text" id="post-text" />
+  </div>
+  </div>
+  </form>
+
+</div>
+
+<script src="/js/addPost.js"></script>
