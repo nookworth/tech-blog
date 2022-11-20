@@ -33,8 +33,8 @@ const savePost = async (event) => {
 const updatePost = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector("#post-title").value.trim();
-  const text = document.querySelector("#post-text").value.trim();
+  const title = document.querySelector("#update-title").value.trim();
+  const text = document.querySelector("#update-text").value.trim();
 
   if (title && text) {
     const response = await fetch(`/api/posts/${post.id}`, {
@@ -109,7 +109,8 @@ window.onclick = function (event) {
   }
 };
 
+//Handlers for buttons inside the modals
 document.querySelector(".close").addEventListener("click", savePost);
 document.querySelector(".close").addEventListener("click", closeModal);
-document.querySelector("#update-post").addEventListener("click", updatePost);
-document.querySelector("#update-post").addEventListener("click", closeModal);
+document.querySelector("#save-update").addEventListener("click", updatePost);
+document.querySelector("#save-update").addEventListener("click", closeModal);
