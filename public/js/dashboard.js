@@ -1,4 +1,4 @@
-var postModal = document.getElementById("post-modal");
+var addModal = document.getElementById("add-modal");
 var updateModal = document.getElementById("update-modal");
 var addBtn = document.getElementById("add-post");
 var updateBtn = document.getElementById("update-post");
@@ -14,8 +14,8 @@ const savePost = async (event) => {
     const response = await fetch(`/api/posts`, {
       method: "POST",
       body: JSON.stringify({
-        title,
-        text,
+        title: title,
+        text: text,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -89,12 +89,12 @@ const updatePost = async (event) => {
 };
 
 const closeModal = () => {
-  postModal.style.display = "none";
+  addModal.style.display = "none";
   updateModal.style.display = "none";
 };
 
 addBtn.onclick = function () {
-  postModal.style.display = "block";
+  addModal.style.display = "block";
 };
 
 updateBtn.onclick = function () {
@@ -102,15 +102,15 @@ updateBtn.onclick = function () {
 };
 
 window.onclick = function (event) {
-  if (event.target == postModal) {
-    postModal.style.display = "none";
+  if (event.target == addModal) {
+    addModal.style.display = "none";
   } else if (event.target == updateModal) {
     updateModal.style.display = "none";
   }
 };
 
 //Handlers for buttons inside the modals
-document.querySelector(".close").addEventListener("click", savePost);
-document.querySelector(".close").addEventListener("click", closeModal);
-document.querySelector("#save-update").addEventListener("click", updatePost);
-document.querySelector("#save-update").addEventListener("click", closeModal);
+document.querySelector("#add-button").addEventListener("click", savePost);
+document.querySelector("#add-button").addEventListener("click", closeModal);
+document.querySelector("#update-button").addEventListener("click", updatePost);
+document.querySelector("#update-button").addEventListener("click", closeModal);

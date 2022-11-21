@@ -23,7 +23,8 @@
   </div>
 </div>
 
-<div id="post-modal" class="modal">
+{{! Modal for new posts }}
+<div id="add-modal" class="modal">
 
   <div class="modal-content border-2 border-black rounded bg-sky-200">
     <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
@@ -36,13 +37,15 @@
         <input class="form-input" type="text" id="post-text" />
       </div>
       <button
-        class="close m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
+        id="add-button"
+        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
       >Save</button>
     </form>
   </div>
 
 </div>
 
+{{! Modal for updating posts }}
 <div id="update-modal" class="modal">
 
   <div class="modal-content border-2 border-black rounded bg-sky-200">
@@ -56,11 +59,11 @@
         <input class="form-input" type="text" id="update-text" />
       </div>
       <button
-        id="save-update"
+        id="update-button"
         class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
       >Update</button>
       <button
-        class="close m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
+        class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
       >Delete</button>
     </form>
   </div>
