@@ -1,8 +1,10 @@
 var addModal = document.getElementById("add-modal");
 var updateModal = document.getElementById("update-modal");
 var addBtn = document.getElementById("add-post");
-var updateBtn = document.getElementById("update-post");
+var updateBtns = document.getElementsByClassName("update-post");
 var span = document.getElementsByClassName("close")[0];
+
+console.log(addBtn);
 
 const savePost = async (event) => {
   event.preventDefault();
@@ -97,15 +99,14 @@ addBtn.onclick = function () {
   addModal.style.display = "block";
 };
 
-updateBtn.onclick = function () {
-  updateModal.style.display = "block";
-};
+for (let i = 0; i < updateBtns.length; i++) {
+  updateBtns[i].setAttribute("id", `update-post-${i}`);
+  console.log(updateBtns[i]);
+}
 
 window.onclick = function (event) {
   if (event.target == addModal) {
     addModal.style.display = "none";
-  } else if (event.target == updateModal) {
-    updateModal.style.display = "none";
   }
 };
 

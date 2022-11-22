@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require("../config/connection");
 const { User, Post } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -6,7 +7,18 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
-      attributes: { exclude: ["id"] },
+      attributes: {
+        include: [
+          "id",
+          "title",
+          "text",
+          "date",
+          [
+            sequelize.fn("DATE_FORMAT", sequelize.col("date"), "%a, %b %D, %Y"),
+            "date",
+          ],
+        ],
+      },
       order: [["date", "DESC"]],
     });
 
@@ -34,6 +46,23 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     res.render("dashboard", {
       ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/comments/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      where: { id: req.params.id },
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render("comments", {
+      ...post,
       logged_in: true,
     });
   } catch (err) {

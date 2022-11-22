@@ -1,10 +1,8 @@
 {{#each posts as |post|}}
   <div class="w-full h-36 border-2 border-black rounded m-6"><div
       class="flex h-1/5 bg-zinc-800 justify-between text-center align-middle text-white"
-    ><p>{{post.title}}</p><p>Posted by
-        {{user.name}}
-        on
-        {{post.date}}</p></div><div
-      class="h-4/5 bg-sky-800 bg-opacity-80 text-white text-center"
-    ><p>{{post.text}}</p></div></div>
+    ><a href="/comments/{{post.id}}">{{post.title}}</a><p
+      >{{post.date}}</p></div>
+    <div class="h-4/5 bg-sky-800 bg-opacity-80 text-white text-center"><p
+      >{{post.text}}</p></div></div>
 {{/each}}
