@@ -2,6 +2,7 @@ var addModal = document.getElementById("add-modal");
 var updateModal = document.getElementById("update-modal");
 var addBtn = document.getElementById("add-post");
 var updateBtns = document.getElementsByClassName("update-post");
+var deleteBtn = document.getElementById("delete-button");
 var span = document.getElementsByClassName("close")[0];
 
 console.log(updateBtns);
@@ -35,7 +36,6 @@ const savePost = async (event) => {
 const updatePost = async (event) => {
   event.preventDefault();
   let element = event.target;
-  console.log(element.id);
 
   const title = document.querySelector("#update-title").value.trim();
   const text = document.querySelector("#update-text").value.trim();
@@ -58,40 +58,28 @@ const updatePost = async (event) => {
     } else {
       alert("Failed to update post");
     }
-  } else if (title && !text) {
-    const response = await fetch(`/api/posts/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        title,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace("/dashboard");
-    } else {
-      alert("Failed to update post");
-    }
-  } else if (text && !title) {
-    const response = await fetch(`/api/posts/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        text,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace("/dashboard");
-    } else {
-      alert("Failed to update post");
-    }
-  }
+  } 
 };
+
+const deletePost = async (event) => {
+  event.preventDefault();
+
+  const id = document.querySelector("#update-id").value.trim();
+  console.log(id);
+
+  const response = await fetch (`/api/posts/:${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert("Failed to delete post");
+  }
+}
 
 const closeModal = () => {
   addModal.style.display = "none";
@@ -106,6 +94,10 @@ addBtn.onclick = function () {
   addModal.style.display = "block";
 };
 
+deleteBtn.onclick = function () {
+  deletePost();
+}
+
 for (let i = 0; i < updateBtns.length; i++) {
   updateBtns[i].onclick = function (e) {
     const id = this.id;
@@ -116,6 +108,9 @@ for (let i = 0; i < updateBtns.length; i++) {
 window.onclick = function (event) {
   if (event.target == addModal) {
     addModal.style.display = "none";
+  };
+  if (event.target == updateModal) {
+    updateModal.style.display = "none";
   }
 };
 
