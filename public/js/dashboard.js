@@ -4,7 +4,7 @@ var addBtn = document.getElementById("add-post");
 var updateBtns = document.getElementsByClassName("update-post");
 var span = document.getElementsByClassName("close")[0];
 
-console.log(addBtn);
+console.log(updateBtns);
 
 const savePost = async (event) => {
   event.preventDefault();
@@ -34,12 +34,15 @@ const savePost = async (event) => {
 
 const updatePost = async (event) => {
   event.preventDefault();
+  let element = event.target;
+  console.log(element.id);
 
   const title = document.querySelector("#update-title").value.trim();
   const text = document.querySelector("#update-text").value.trim();
+  const id = document.querySelector("#update-id").value.trim();
 
   if (title && text) {
-    const response = await fetch(`/api/posts/${post.id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         title,
@@ -56,7 +59,7 @@ const updatePost = async (event) => {
       alert("Failed to update post");
     }
   } else if (title && !text) {
-    const response = await fetch(`/api/posts/${post.id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         title,
@@ -72,7 +75,7 @@ const updatePost = async (event) => {
       alert("Failed to update post");
     }
   } else if (text && !title) {
-    const response = await fetch(`/api/posts/${post.id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         text,
@@ -95,13 +98,19 @@ const closeModal = () => {
   updateModal.style.display = "none";
 };
 
+const openUpdateModal = () => {
+  updateModal.style.display = "block";
+}
+
 addBtn.onclick = function () {
   addModal.style.display = "block";
 };
 
 for (let i = 0; i < updateBtns.length; i++) {
-  updateBtns[i].setAttribute("id", `update-post-${i}`);
-  console.log(updateBtns[i]);
+  updateBtns[i].onclick = function (e) {
+    const id = this.id;
+    openUpdateModal();
+  }
 }
 
 window.onclick = function (event) {

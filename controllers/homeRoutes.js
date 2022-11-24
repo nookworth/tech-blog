@@ -57,13 +57,16 @@ router.get("/comments/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({
       where: { id: req.params.id },
+      include: [ User ],
     });
 
     const post = postData.get({ plain: true });
+    console.log("Here!!!!!!!", post);
 
     res.render("comments", {
-      ...post,
-      logged_in: true,
+      post
+      // ...post,
+      // logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
