@@ -54,6 +54,23 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+router.get("/dashboard/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      where: { id: req.params.id },
+      include: [User],
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render("editPost", {
+      post,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/comments/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({

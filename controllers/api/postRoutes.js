@@ -42,14 +42,8 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const deletedPost = await Post.findOne(
-      {
-        where: {
-          id: req.params.id,
-        },
-      },
-      deletedPost.destroy()
-    );
+    const deletedPost = await Post.findByPk(req.params.id);
+    await deletedPost.destroy();
 
     if (!deletedPost) {
       res.status(404).json({ message: "No post found with this id!" });

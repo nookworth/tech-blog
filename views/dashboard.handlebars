@@ -11,10 +11,11 @@
     </button>
     {{#each posts as |post|}}
       <div class="w-full flex border-2 border-black rounded">
-        <button
+        <a
+          href="/dashboard/{{post.id}}"
           id={{post.id}}
           class="update-post w-3/12 bg-zinc-800 bg-opacity-80 text-center text-white hover:bg-opacity-90"
-        >{{post.title}}</button>
+        >{{post.title}}</a>
         <div
           class="w-7/12 bg-sky-800 bg-opacity-80 text-white"
         >{{post.text}}</div>
@@ -49,7 +50,7 @@
 </div>
 
 {{! Modal for updating posts }}
-<div id="update-modal" class="modal">
+{{!-- <div id="update-modal" class="modal">
   <div class="modal-content border-2 border-black rounded bg-sky-200">
     <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
       <div class="form-group">
@@ -74,6 +75,6 @@
       >Delete</button>
     </form>
   </div>
-</div>
+</div> --}}
 
 <script src="/js/dashboard.js"></script>
