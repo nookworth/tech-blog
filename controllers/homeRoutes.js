@@ -43,6 +43,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    console.log(user);
 
     res.render("dashboard", {
       ...user,
@@ -57,14 +58,14 @@ router.get("/comments/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({
       where: { id: req.params.id },
-      include: [ User ],
+      include: [User],
     });
 
     const post = postData.get({ plain: true });
-    console.log("Here!!!!!!!", post);
+    console.log("Here!!!!!!!", postData.toJSON());
 
     res.render("comments", {
-      post
+      post,
       // ...post,
       // logged_in: true,
     });

@@ -16,10 +16,13 @@
           class="update-post w-3/12 bg-zinc-800 bg-opacity-80 text-center text-white hover:bg-opacity-90"
         >{{post.title}}</button>
         <div
-          class="w-8/12 bg-sky-800 bg-opacity-80 text-white"
+          class="w-7/12 bg-sky-800 bg-opacity-80 text-white"
         >{{post.text}}</div>
-        <div class="1/12 bg-zinc-800 bg-opacity-80 text-center text-white">Post id: 
-          {{post.id}}</div>
+        <div class="1/12 bg-zinc-800 bg-opacity-80 text-center text-white">Post
+          id:</div>
+        <div
+          class="1/12 bg-zinc-800 bg-opacity-80 text-center text-white"
+        >{{post.id}}</div>
       </div>
     {{/each}}
   </div>
@@ -27,7 +30,6 @@
 
 {{! Modal for new posts }}
 <div id="add-modal" class="modal">
-
   <div class="modal-content border-2 border-black rounded bg-sky-200">
     <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
       <div class="form-group">
@@ -44,12 +46,10 @@
       >Save</button>
     </form>
   </div>
-
 </div>
 
 {{! Modal for updating posts }}
 <div id="update-modal" class="modal">
-
   <div class="modal-content border-2 border-black rounded bg-sky-200">
     <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
       <div class="form-group">
@@ -62,7 +62,7 @@
       </div>
       <div class="form-group">
         <label for="post-text">Id:</label>
-        <input class="form-input" type="text" id="update-id" value={{post.id}} />
+        <input class="form-input" type="text" id="update-id" value={{id}} />
       </div>
       <button
         id="update-button"
@@ -74,7 +74,6 @@
       >Delete</button>
     </form>
   </div>
-
 </div>
 
 <script src="/js/dashboard.js"></script>

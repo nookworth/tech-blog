@@ -61,8 +61,7 @@ const updatePost = async (event) => {
   } 
 };
 
-const deletePost = async (event) => {
-  event.preventDefault();
+const deletePost = async () => {
 
   const id = document.querySelector("#update-id").value.trim();
   console.log(id);
