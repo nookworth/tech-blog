@@ -54,11 +54,26 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-router.get("/dashboard/:id", withAuth, async (req, res) => {
+router.get("/dashboard/:id", async (req, res) => {
   try {
-    const postData = await Post.findOne({
-      where: { id: req.params.id },
-      include: [User],
+    // const postData = await Post.findOne({
+    //   where: { id: req.params.id },
+    //   include: [User],
+    // });
+
+    const postData = await Post.findByPk(req.params.id, {
+      attributes: {
+        include: [
+          "id",
+          "title",
+          "text",
+          "date",
+          [
+            sequelize.fn("DATE_FORMAT", sequelize.col("date"), "%a, %b %D, %Y"),
+            "date",
+          ],
+        ],
+      },
     });
 
     const post = postData.get({ plain: true });

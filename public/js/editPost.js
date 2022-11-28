@@ -4,11 +4,12 @@ var deleteBtn = document.getElementById("delete-button");
 const updatePost = async (event) => {
   event.preventDefault();
   let element = event.target;
+  console.log(element);
 
   const title = document.querySelector("#update-title").value.trim();
   const text = document.querySelector("#update-text").value.trim();
   const id = document.querySelector("#update-id").value.trim();
-  console.log(title, text, id);
+  console.log("Here!!!!!!!!", title, text, id);
 
   if (title && text) {
     const response = await fetch(`/api/posts/${id}`, {
@@ -48,10 +49,6 @@ const deletePost = async (event) => {
   }
 };
 
-updateBtn.onClick = function () {
-  updatePost();
-};
+updateBtn.addEventListener("click", updatePost());
 
-deleteBtn.onClick = function () {
-  deletePost();
-};
+deleteBtn.addEventListener("click", deletePost());

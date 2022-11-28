@@ -1,6 +1,6 @@
 <div class="w-full h-36 border-2 border-black rounded m-6"><div
       class="flex h-1/5 bg-zinc-800 justify-between text-center align-middle text-white"
-    ><p>{{post.title}}</a><p>Posted by {{post.user.name}}
+    ><p>{{post.title}}</a><p>Posted
         on
         {{post.date}}</p></div><div
       class="h-4/5 bg-sky-800 bg-opacity-80 text-white text-center"
@@ -8,15 +8,15 @@
 </div>
 <form class="form login-form bg-sky-200 bg-opacity-50 signup-form">
       <div class="form-group">
-        <label for="post-title">Title:</label>
-        <input class="form-input" type="text" id="update-title" value={{post.title}} />
+        <label for="update-title">Title:</label>
+        <input class="form-input" type="text" id="update-title"/>
       </div>
       <div class="form-group">
-        <label for="post-text">Text:</label>
-        <input class="form-input" type="text" id="update-text" value={{post.text}} />
+        <label for="update-text">Text:</label>
+        <input class="form-input" type="text" id="update-text"/>
       </div>
       <div class="form-group">
-        <label for="post-id">Id:</label>
+        <label for="update-id">Id:</label>
         <input class="form-input" type="text" id="update-id" value={{post.id}} />
       </div>
       <button
