@@ -5,9 +5,10 @@
         {{post.date}}</p></div><div
       class="h-4/5 bg-sky-800 bg-opacity-80 text-white text-center"
     ><p>{{post.text}}</p></div>
+    <div class="flex h-1/5 bg-zinc-800 justify-between text-center align-middle text-white"></div>
     <form class="form comment-form bg-sky-200 bg-opacity-50">
       <div class="form-group">
-        <label for="post-title">Add a comment:</label>
+        <label for="comment-text">Add a comment:</label>
         <input class="form-input" type="text" id="comment-text" />
       </div>
       <button
@@ -15,3 +16,5 @@
         class="m-2 w-36 border-2 text-white text-center border-black rounded bg-sky-800 bg-opacity-80 hover:bg-opacity-100"
       >Save</button>
     </form></div>
+
+<script src="/js/comments.js"></script>
